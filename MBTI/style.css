@@ -1,0 +1,35 @@
+html,body{
+    background-color: antiquewhite;
+}
+article{
+    display: flex;
+    flex-direction: column;
+}
+.question{
+    display: none;
+}
+.result{
+    display: none;
+}
+#img{
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+body
+{
+    font-family: 'Yeon Sung', cursive;
+}
+.explain2{
+    border: 1px solid black;
+}
+.start_btn{
+    width: 450px;
+    height: 170px;
+    margin: 0 auto;
+    font-size: 35px;
+}
+.choice{
+    height: 80px;
+    font-size: 25px;
+}

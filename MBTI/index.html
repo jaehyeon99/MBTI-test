@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>재미있는 MBTI 테스트</title>
+    <link rel="shortcut icon" href="img/favi.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MBTI 테스트">
+    <meta property="og:description" content="MBIT를 기반으로 한 내가 동물로 태어났다면?">
+    <meta property="og:image" content="https://ifanimal.netlify.app/img/사자.png">
+    <meta property="og:url" content="http://www.mysite.com">
+    <meta name="description" content="내가 동물로 태어났다면?">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ffda88b8e36cbae"></script>
+    <script data-ad-client="ca-pub-2847766746891322" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
+
+<body class="container">
+    <article class="start">
+        <h1 class="mt-5 text-center">재미로 보는 성격 테스트<br>내가 동물로 태어났다면 ?</h1>
+
+        <button type="button" class="start_btn btn btn-outline-info mt-5" onclick="start();">테스트 시작하기</button>
+    </article>
+    <article class="question">
+        <div class="progress mt-5">
+            <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar"
+                style="width: calc(100/12*1%)"></div>
+        </div>
+        <h2 id="title" class="text-center mt-5">문제</h2>
+        <input id="type" type="hidden" value="EI">
+        <button id="A" type="button" class="btn btn-outline-info choice mt-5">Info</button>
+        <button id="B" type="button" class="btn btn-outline-info choice mt-5">Info</button>
+    </article>
+    <article class="result">
+        <img id="img" class="rounded-circle mt-5" src="./img/사자.png" alt="animal">
+        <h2 id="animal" class="mt-5 text-center">동물이름</h2>
+        <h3 id="explain" class="mt-5 text-center">설명</h3>
+        <h4 id="explain2" class="mt-5 text-center">자세한 설명</h4>
+        <h5 class="mt-5 text-center">상극인 조합</h5>
+        <h6 id="worst" class="mt-5 text-center">MBTI</h6>
+        <h5 class="mt-5 text-center">최상의 조합</h5>
+        <h6 id="best" class="mt-5 text-center">MBTI</h6>
+
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="text-center addthis_inline_share_toolbox_420m mt-5"></div>
+    </article>
+    <article>
+        <ins class="kakao_ad_area mt-5 text-center" style="display:none;" data-ad-unit="DAN-tAcnnQTURwoFJwec"
+            data-ad-width="320" data-ad-height="100"></ins>
+    </article>
+    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+    <input type="hidden" id="EI" value="0">
+    <input type="hidden" id="SN" value="0">
+    <input type="hidden" id="TF" value="0">
+    <input type="hidden" id="JP" value="0">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <script>
+        var num = 1;
+
+        var q = {
+            1: { "title": "Q1. 대학교 과제를 하게 된 당신 교수님은 조별로 과제를 제출하라고 하신다.", "type": "EI", "A": "팀원이 모르는 사람이라도 잘 어울려서 열심히 끝낼 수 있어.", "B": "모르는 사람이랑 하면 불편한데.. 친한 친구들이랑 하고싶다." },
+            2: { "title": "Q2. 팀플을 무사히 마친 당신 당신의 친구들이 팀플도 끝났으니 한 잔 하자며 당신을 부른다. 그 술자리에는 친하지 않고 처음 보는 사람도 있다", "type": "EI", "A": "처음 보면 뭐 어때 팀플도 끝났으니 한 잔 하면서 친해지는 거지!", "B": "팀플해서 힘들고 더욱이 모르는 사람이 있어서 어색할 꺼 같은데 집에 가서 오늘은 쉬자." },
+            3: { "title": "Q3. 하루를 무사히 마치고 자기 전 하루종일 무슨 일이 있었는지 생각하는 당신  ", "type": "EI", "A": "머릿속으로 하루종일 무슨 일이 있었는지 생각한다", "B": "하루종일 무슨 일이 있었는지 다이어리나 일기장에 기록을 한다" },
+            4: { "title": "Q4. 다음 날 아침, 화장품이 필요해 매장에 들렸다. 새로운 제품이 30% 세일 중이다.", "type": "SN", "A": "30퍼센트 세일 중이라도 처음 써보는 거니까 못 믿어. 원래 쓰던 제품 쓰자", "B": "오 30%나 세일 중이네 세일 하는 김에 한 번 써보는 것도 나쁘지 않지" },
+            5: { "title": "Q5. 매장에서 나온 후 학교에 가는 길에 친구가 만났다 친구가 뜬금없이 현재가 중요하냐 미래가 중요하냐고 물어본다", "type": "SN", "A": "당연히 내가 지금 살아있는 현재지 미래에 어찌될지 알고...", "B": "에이 현재 보다는 미래지 미래를 생각해야 나중에 잘되는 법이야" },
+            6: { "title": "Q6. 아침을 안먹어서 배가 고픈 당신 자주 가던 음식점을 가려고 하는데 오늘 정기 휴무 날이다. ", "type": "SN", "A": "아,, 닫았네.. 그냥 조금만 참고 수업 끝나면 집가서 먹어야지 !~", "B": "아 저기 새로운 식당 오픈 했던데 한번 어떤지 맛 보러 갈까?" },
+            7: { "title": "Q7. 수업이 끝나고 오랜만에 친구를 만났는데 친구가 고민을 털어놓는다. 당신은 속으로 생각한다", "type": "TF", "A": "흠.. 이 부분은 친구가 잘못한거 같은데.. 속상한 일이 아닌데 왜 속상해하지?", "B": "아이구... 많이 힘들었겠다. 내가 위로해줘서 힘이 되어줘야지!!" },
+            8: { "title": "Q8. 내일은 나의 생일이다. 친구들에게 받고 싶은 선물이 있다.", "type": "TF", "A": "나에게 꼭 필요한 실용적인 선물을 줬으면 좋겠다.", "B": "선물도 좋지만 진심을 가득담은 로맨틱한 꽃과 편지를 받았으면 좋겠다" },
+            9: { "title": "Q9. 집에서 누워서 핸드폰을 하고있는데 알바하다가 사고쳤다고 친구에게 연락이 왔다.", "type": "TF", "A": "왜 사고쳤는지 구체적으로 무슨일인지 물어본다", "B": "속상해 할 친구를 생각하며 위로의 말을 건네준다" },
+            10: { "title": "Q10. 기분이 좋지 않은 친구를 위해서 쇼핑을 같이 가려고 한다.", "type": "JP", "A": "희~ 오랜만에 쇼핑이니까 쇼핑리스트를 가득 작성해야지~!!", "B": "오 이번에 신상이 많이 나왔던데 신상부터 사야겠어!!" },
+            11: { "title": "Q11. 쇼핑을 하다가 알바에 늦게 된 당신", "type": "JP", "A": "알바에 늦으면 절대 안돼 . 택시 타고 빨리 가야겠다!!!", "B": "에이 5분 10분 정도야 늦을 수 있지 택시타기에는 아까우니까 버스타고 가야겠어." },
+            12: { "title": "Q12. 내일은 기다리고 기다리던 여행 날이다.", "type": "JP", "A": "여행 가기전에 맛집 관광지 다 조사하고 계획을 다 짜놔야지~", "B": "에이 귀찮게 무슨 계획이야 발길이 가는대로 가야 이게 진짜 여행이지!" }
+        }
+        var reslut = {
+            "ENTP": {
+                "animal": "앵무새", "explain": "자존심 고집이 세고 변덕이 심하며 뒷심이 부족한 앵무새",
+                "explain2": "겉으론 인싸, 속모습은 아싸인 당신은 탐욕적이며 자존심이 세고 고집이 강해요. 감정기복이 심하여 남들에게 기분 바뀌는게 다 티나고 사람에게 가장 힐링받는 동시에 사람에게 가장 스트레스를 받는 타입이에요. 뒷심과 끈기가 부족하여 한번 시작한 일은 마무리를 짓지는 못하지만 언젠가는 잘할꺼라는 믿음 때문에 스트레스를 받지는 않아요. 정해진 틀에 갇힌 생활을 하지 못하며 반복되는 일을 매우 싫어해요. 계획은 세우지도 않아요. 어차피 못지키기 때문이죠.",
+                "img": "./img/앵무새.png",
+                "worst": "현실적이며 고집이 센 곰",
+                "best": "잡생각이 많은 토끼"
+            },
+            "INTP": {
+                "animal": "부엉이", "explain": "낯가림이 심하고 자기애 뿜뿜인 부엉이",
+                "explain2": "진지충 자발적 아싸인 당신은 감수성이 풍부하고 말수가 많지 않아요. 남들이 자신을 욕하는 것을 신경쓰지 않으며 남을 욕하지 않아요. 게을러서 미루기의 끝판왕이며 무뚝뚝한 편이고 잡담같은것도 잘 못하고 싫어해요. 또한 논리력이 없거나 어리석은 사람들을 보면 화를 참지 못해요. 공감능력이 부족하여 다른사람 고민을 들어주는 척하지만 속으로는 멍때리거나 따른 생각을 할 때가 대부분이에요. 남에게 피해주는 것을 싫어해서 남들 앞에서 행동을 조심스럽게 하곤 하죠.",
+                "img": "./img/부엉이.png",
+                "worst": "약속어기는 것을 싫어하는 하마",
+                "best": "자존심 고집이 세고 변덕이 심하며 뒷심이 부족한 앵무새"
+            },
+            "ESFJ": {
+                "animal": "말", "explain": "철저하고 혼자 계획 세우고 계획이 틀어지는 것을 싫어하는 말",
+                "explain2": "새로운 사람들과의 술자리를 좋아하고 책 읽고 영화보는 걸 좋아하는 당신, 어디 나가면 어색한것을 못참고 먼저 말을 걸어요. 또한 남의 눈치를 많이봐서 그런지 남 생각 잘해서 그 사람에게 맞춰주는 편이에요. 친구 가족 뿐만 아니라 자신의 주변사람들을 다 챙기고 이 사람들에게 불행한 일이 생기면 자기 자신 또한 불행해지는 수준이에요.",
+                "img": "./img/말.png",
+                "worst": "잡생각이 많은 토끼",
+                "best": "원칙주의자 게으름뱅이인 사슴"
+            },
+            "ISFJ": {
+                "animal": "사슴", "explain": "원칙주의자 게으름뱅이인 사슴",
+                "explain2": "어쩔 땐 내향적이고 어쩔 땐 외향적인 당신 성격이 왔다갔다 해서 자기자신도 본인 성격을 잘 알지 못해요. 겸손을 갖추고 있어 남에게 자신에 대한 어필을 잘하지 않으며  남 칭찬을 많이해줘요. 조 짜서 하는 단체활동을 좋아하지 않으며 혼자서 할 수 있는 일을 좋아해요. 겉으로는 무덤덤한척 관심 없는 척 해도 속으로는 온갖 생각을 다해요. 당신은 애인을 한번 사귀면 오래가는 타입이에요.",
+                "img": "./img/사슴.png",
+                "worst": "잡생각이 많은 토끼",
+                "best": "현실적이며 고집이 센 곰"
+            },
+            "ESTP": {
+                "animal": "얼룩말",
+                "explain": "외로움을 많이 타며 관종 끼가 있는 얼룩말",
+                "explain2": "외로움을 많이 타며 리더쉽이 많은 당신 손재주가 좋아서 취미가 베이킹 , 뜨개질, 인형 만들기 같은 것이 대부분이에요. 공감능력이 조금 부족하여 남한테 관심 없고 생각하는 것도 귀찮아해요. 리더십이 많아 조별활동 조장 또는 반장을 도맡아 하기도 하고 모임 같은 곳에서는 어느새 자신도 모르게 분위기를 주도하고 있어요. 근거 없는 자신감 근자감이 가득해요. 인생을 대충 살고 남 눈치도 보지 않아요.",
+                "img": "./img/얼룩말.png",
+                "worst": "시끄러우며 핵인싸가 되고 싶어하는 개",
+                "best": "원칙주의자 게으름뱅이인 사슴"
+            },
+            "ISTP": {
+                "animal": "고양이", "explain": "만사가 귀찮으며 낯가림이 심한 고양이",
+                "explain2": "새로운 사람을 만나는 것을 싫어하는 당신 낯가림이 심하지만 친해지면 말도 많고 장난도 많이 쳐요. 위계질서 잡힌 분위기를 극혐하여 자신이 하는거 간섭받으면 육성으로 튀어나와요. 관종이라서 관심받는 건 좋아하는데 시끄러운건 싫어해요. 카톡이 왔을 때 할말이 없으면 읽씹하거나 대화 이어가기를 하지 않아요. 누가 본인을 욕해도 신경쓰지 않으며 공감능력이 부족하여 티는 내지 않으려 하지만 다 티나는 편이에요. 웹툰 같은거 귀찮아서 챙겨보지도 못하고 챙겨보다가 한 번 놓치면 안보는 편이에요.",
+                "img": "./img/고양이.png",
+                "worst": "생각이 많은 기린",
+                "best": "철저하고 혼자 계획 세우고 계획이 틀어지는 것을 싫어하는 말"
+            },
+            "ENFJ": {
+                "animal": "개", "explain": "시끄러우며 핵인싸가 되고 싶어하는 개",
+                "explain2": "여가시간을 혼자 보내는 것을 좋아하는 당신 사람들을 이끄는 것에 타고난 기질이 있으며 좋아하기도 해요 사람들을 많이 좋아하는 편이에요. 남들 눈치를 많이 봐서 사람들에게 잘 맞춰주는 성격이지만 그 만큼 상처도 많이 받아요. 본인은 본인 스스로가 잘 알아요. 일에 흥미가 많은 사람이라 어렸을 때 부터 꿈이 여러개에요. 무리에 속해있는 것도 좋아하지만 마이웨이 기질도 약간 있어요. 여가시간에는 혼자 보내는 걸 좋아하고 단순하며 멘탈이 강한 편이에요.",
+                "img": "./img/강아지.png",
+                "worst": "외로움을 많이 타며 관종 끼가 있는 얼룩말",
+                "best": "귀찮고 무기력한 양"
+            },
+            "INFJ": {
+                "animal": "기린", "explain": "생각이 많은 기린",
+                "explain2": "새로운 일을 시작하거나 새로운 사람을 만나는 걸 극혐하는 당신 생각이 많고 망상이 잦아요. 낯가림이 매우 심한 편이여도 친해지고 싶은 사람이 있어도 먼저 다가가지 못하고 그 사람이 먼저 다가와주길 바라는 편이에요. 내 사람한테는 무조건 적으로 잘해주고 아는 사람한테도 어느정도 선의를 베풀지만 한 번 눈밖에 나거나 잘못하면 얄짤없이 버려요. 당신은 겉으로 웃고있어도 속으로 욕하는 경우도 있어요. 엄청 조용히 다니지만 엠티 장기자랑 같은 곳에서는 막 춤추고 노래부르고 싶어하는 기질이 있어요. 집순이지만 여행가는 건 또 좋아해요",
+                "img": "./img/기린.png",
+                "worst": "귀찮고 무기력한 양",
+                "best": "자존심 고집이 세고 변덕이 심하며 뒷심이 부족한 앵무새"
+            },
+            "ESFP": {
+                "animal": "젖소", "explain": "우주최강 오지라퍼 젖소",
+                "explain2": "자존감이 높아 모든게 내 위주인 당신 모임 장소에서 침묵이 흐르는 것을 제일 싫어해요. 하고싶다고 생각한 것은 다 해야하지만 하기싫은건 끝까지 미루는 편이에요. 사교성이 많아 모르는 사람들이랑도 잘 어울리고 사람이 너무 좋고 어울리는 것을 좋아하지만 집 밖에 나가기는 귀찮아해요. 혼자 집에 있으면 지루해서 뭔가를 계속 하고 있는 자기 자신을 발견해요. 사람의 단점보다는 장점을 보려하고 싸움보다는 평화를 좋아하는 평화주의자에요.",
+                "img": "./img/젖소.png",
+                "worst": "시끄러우며 핵인싸가 되고 싶어하는 개",
+                "best": "약속어기는 것을 싫어하는 하마"
+            },
+            "ISFP": {
+                "animal": "양", "explain": "귀찮고 무기력한 양",
+                "explain2": "관심받는것은 싫어하지만 또 좋아하는 소심한 관종인 당신 남한테 속마음을 많이 얘기하지 않아요. 남들이 다 착한 줄 알지만 사실 이기적이며 겉으로 착한척하고 속으로 영악한 생각을 많이해요. 인간관계에 신경을 많이 쓰는 편이며 자존감이 낮아 자존감을 키울 필요가 있어요. 거절을 잘 못하여 남들 부탁을 잘 들어주며 양보를 잘해요. 어떤 일에 대하여 분석, 비판, 판단을 잘하지만 이런 판단으로 나온 결과를 적극적으로 행동에 옮기지는 못해요.",
+                "img": "./img/양.png",
+                "worst": "잡생각이 많은 토끼",
+                "best": "철저하고 혼자 계획 세우고 계획이 틀어지는 것을 싫어하는 말"
+            },
+            "ENTJ": {
+                "animal": "사자", "explain": "성격이 불도저 같은 사자",
+                "explain2": "피해 주는거 피해 받는 것을 싫어하는 당신 남이 이래라 저래라 하는거 싫어하고 냉철해질땐 끝도 없이 냉철해져요. 오직 세상에 믿을 사람은 나 하나 라는 마인드를 가지고 있어 시원찮은 사람들이랑 팀플이나 무언가를 할 때 엄청 답답해하고 결국 총대매고 자기가 직접 나서서 하는 편이에요. 자기애가 강하여 열등감 느낄 일을 거의 없어요. 사람이 많은 곳에서는 프로페셔널한 정상인이지만 혼자 있을 때는 몽상을 많이하는 몽상가에요.  ",
+                "img": "./img/사자.png",
+                "worst": "웬만하면 두루두루 다 맞는 성격이에요",
+                "best": "잡생각이 많은 토끼"
+            },
+            "INTJ": {
+                "animal": "호랑이", "explain": "굉장한 개인주의자 호랑이",
+                "explain2": "혼자있는 것을 매우 좋아하는 당신 하루하루 세세하게 계획을 짜놓고 지내는 것을 좋아하여 돈관리도 잘하는 편이에요. 남에게 관심도 없고 친구가 고민 상담할 때 공감도 못하며 남 연애사 듣는 게 세상에서 제일 지루해요. 인간관계 정리를 잘하고 그 사람에게 정 붙이는데 시간이 오래걸려요 또한 사람 얼굴과 이름을 외우는데 시간이 많이 걸려요. 약간의 관종끼를 가지고 있지만 내성적이라서 표출을 잘하지는 못해요. 또한 내성적이라 사람이 많고 시끄러운 장소를 극혐하는 편이에요 ",
+                "img": "./img/호랑이.png",
+                "worst": "철저하고 혼자 계획 세우고 계획이 틀어지는 것을 싫어하는 말",
+                "best": "정신이 산만하며 고집이 센 코끼리"
+            },
+            "ENFP": {
+                "animal": "코끼리", "explain": "정신이 산만하며 고집이 센 코끼리",
+                "explain2": "호불호가 분명한 당신 흥미있고 관심있는 건 매우 열정적으로 하지만 관심 없는 건 별로 알고 싶지도 않아해요. 낯을 좀 가리지만 풀리면 금방 친해지고 말도 많아져요. 당신은 생존에 의한 인싸력을 지니고 있어 친구를 만들기 위해서 인싸력이 폭발하지만 친구가 생기면 바로 찌질이로 바뀌어서 문제에요. 새롭게 친구 사귀는 것을 좋아하고 사람들이랑 노는 걸 너무 좋아하고 친해지는 과정조차도 행복해하는 편이에요. 일을 크게 키우지만 싫증나서 안하는게 대부분이며 무계획, 즉흥적이며 감정기복이 심한 편이에요",
+                "img": "./img/코끼리.png",
+                "worst": "외로움을 많이 타며 관종 끼가 있는 얼룩말",
+                "best": "굉장한 개인주의자 호랑이"
+            },
+            "INFP": {
+                "animal": "토끼", "explain": "잡생각이 많은 토끼",
+                "explain2": "여러명이서 노는 것보다 한 두명이서 노는게 좋은 당신 혼자 있는 건 좋은데 또 외로운 건 싫어하며 나가는 건 귀찮아하는데 또 막상 나가면 제일 잘 놀아요. 돈을 계획없이 막 쓰지만 자기합리화를 잘하여 후회하지는 않아요 남 얘기를 잘 들어주는 척 하는데 사실 딴생각 하고 있는 경우가 많으며 낯을 심하게 가리고 사람 사귈 때 따지는게 엄청 많아요. 남한테 관심이 없고 남을 잘 믿지 않지만 남이 나를 어떻게 생각할지 고민을 많이해요. 누군가가 자신의 일하는 방식에 대해 간섭하면 화를 많이내고 남한테 의지하는 방법을 잘 모르기도 하고 의지하기도 싫어서 힘들어도 혼자 해결하려고 하는 편이에요",
+                "img": "./img/토끼.png",
+                "worst": "우주최강 오지라퍼 젖소",
+                "best": "성격이 불도저 같은 사자"
+
+            },
+            "ESTJ": {
+                "animal": "곰", "explain": "현실적이며 고집이 센 곰",
+                "explain2": "공감능력이 제로인 당신 누군가가 힘든 얘기를 하면 감정적으로 공감보다는 상황분석을 먼저하고 누가 먼저 잘못했는지 머릿속으로 따지고 있지만 상처 받을까봐 얘기는 안해요. 목표를 설정해놓고 그 목표를 이룰 때까지 한 우물만 파며 모든게 제자리에 있어야 하고 자신의 계획이 절대 틀어지면 안돼요. 일처리 못하는 것을 세상에서 제일 싫어하여 누군가가 일을 못하는 것을 보면 자신이 나서서 두세배로 다 해놓는 편이에요. 또한 사람들이 아는 내 성격이랑 혼자 있을 때 성격이로 조금 다른 편이에요",
+                "img": "./img/곰.png",
+                "worst": "시끄러우며 핵인싸가 되고 싶어하는 개",
+                "best": "낯가림이 심하고 자기애 뿜뿜인 부엉이"
+
+            },
+            "ISTJ": {
+                "animal": "하마", "explain": "약속어기는 것을 싫어하는 하마",
+                "explain2": "즉흥적인 것을 싫어하며 원리원칙적인 당신 여행을 갈 때에는 나서서 계획을 짜는 편이에요. 협동하고 이런 것을 극혐하고 그냥 나혼자 하는게 젤 편하고 젤 빠른 편이에요. 나함테 관심이 별로 없는 편이고 가끔씩은 공감능력이 부족하다는 것 같은 소리를 많이 들어요. 딱딱하다는 소리를 자주 들으며 철벽 을 잘 쳐요. 프로젝트나 일을 시작할 때 딴데로 이야기가 세는 것을 싫어하고 목표로 잡았으면 무조건 끝내야 직성이 풀리는 편이에요",
+                "img": "./img/하마.png",
+                "worst": "생각이 많은 기린",
+                "best": "우주최강 오지라퍼 젖소"
+            }
+        }
+        function start() {
+            $(".start").hide();
+            $(".question").show();
+            next();
+        }
+        $("#A").click(function () {
+            var type = $("#type").val();
+            var preValue = $("#" + type).val();
+            $("#" + type).val(parseInt(preValue) + 1)
+            next();
+        });
+        $("#B").click(function () {
+            next();
+        });
+        function next() {
+            if (num == 13) {
+                $(".question").hide();
+                $(".result").show();
+                var mbti = "";
+                $("#EI").val() < 2 ? mbti += "I" : mbti += "E"
+                $("#SN").val() < 2 ? mbti += "N" : mbti += "S"
+                $("#TF").val() < 2 ? mbti += "F" : mbti += "T"
+                $("#JP").val() < 2 ? mbti += "P" : mbti += "J"
+                //alert(mbti);
+                $("#img").attr("src", reslut[mbti]["img"]);
+                $("#animal").html(reslut[mbti]["animal"]);
+                $("#explain").html(reslut[mbti]["explain"]);
+                $("#explain2").html(reslut[mbti]["explain2"]);
+                $("#worst").html(reslut[mbti]["worst"]);
+                $("#best").html(reslut[mbti]["best"]);
+            } else {
+                $(".progress-bar").attr('style', 'width: calc(100/12*' + num + '%)');
+                $("#title").html(q[num]["title"]);
+                $("#type").val(q[num]["type"]);
+                $("#A").html(q[num]["A"]);
+                $("#B").html(q[num]["B"]);
+                num++
+            }
+
+        }
+    </script>
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ffda88b8e36cbae"></script>
+
+</body>
+
+</html>
