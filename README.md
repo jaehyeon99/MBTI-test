@@ -19,5 +19,5 @@
 2. 검사 결과 예시
 <img src ="https://github.com/jaehyeon99/MBTI-test/blob/main/MBTI/img/result_page.PNG?raw=true">
 
-#### 완성된 웹사이트
+#### 웹 서비스 베포
 - https://ifanimal.netlify.app/
