@@ -15,7 +15,7 @@
 
 #### 완성된 사이트 예시
 1. 검사 시작 
-<img src = "https://github.com/jaehyeon99/MBTI-test/blob/main/MBTI/img/main_page.PNG?raw=true">
+<img src = "https://github.com/jaehyeon99/MBTI-test/blob/main/MBTI/img/main_page.PNG?raw=true" width="100%" >
 2. 검사 결과 예시
 <img src ="https://github.com/jaehyeon99/MBTI-test/blob/main/MBTI/img/result_page.PNG?raw=true">
 
